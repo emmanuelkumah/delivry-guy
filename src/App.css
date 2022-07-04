@@ -1,0 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&family=Poppins:wght@100;300;500&family=Quicksand:wght@300;500&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* css variables */
+:root {
+  --main-bg-color: #0d0d12;
+  ---main-color: #fff;
+  --sec-color: #ffbf00;
+  --alt-color: #a67c00;
+}
+body {
+  background-color: var(--main-bg-color);
+  color: var(---main-color);
+  font-family: "Poppins", sans-serif;
+}

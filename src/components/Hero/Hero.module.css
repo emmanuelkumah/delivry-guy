@@ -1,0 +1,121 @@
+.hero_container {
+  display: flex;
+  justify-content: space-between;
+  height: 100vh;
+  position: relative;
+}
+.hero_topText {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: var(--sec-color);
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  margin-top: 5rem;
+  width: fit-content;
+  position: relative;
+}
+.hero_topText > span {
+  color: #000;
+}
+.hero_topText::before {
+  content: "Best";
+  background-color: var(--alt-color);
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  margin-right: 0.5rem;
+}
+.hero_left {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem 2.5rem;
+  flex: 3 1;
+}
+.hero_heading {
+  margin-top: 2rem;
+  padding: 1rem 0;
+  font-size: 2.8rem;
+  font-family: "Hachi Maru Pop", cursive;
+}
+.hero_subHeading {
+  font-size: 1.5rem;
+  font-weight: 100;
+  margin-right: 8rem;
+  padding-right: 15rem;
+  padding-bottom: 2rem;
+}
+
+.hero_stats {
+  display: flex;
+  gap: 3.2rem;
+  margin-bottom: 2rem;
+}
+.hero_stats > div {
+  display: flex;
+  flex-direction: column;
+}
+.hero_stats > div > span:first-of-type {
+  font-size: 2rem;
+}
+.hero_stats > div > span:nth-of-type(2) {
+  font-size: 1.3rem;
+  color: var(--alt-color);
+  font-family: "Hachi Maru Pop", cursive;
+}
+.hero_btn {
+  display: flex;
+  gap: 3rem;
+}
+.hero_btn > button {
+  font-size: 1.2rem;
+  padding: 0.6rem 1.4rem;
+  border-radius: 20px;
+  color: var(--main-color);
+}
+.hero_btn > button:first-of-type {
+  background-color: var(--alt-color);
+}
+.hero_btn > button:nth-of-type(2) {
+  background-color: transparent;
+  border: 1px solid var(--alt-color);
+}
+.hero_right {
+  display: flex;
+  flex: 1 1;
+  background-color: var(--sec-color);
+  position: relative;
+}
+.hero_img {
+  width: 170%;
+  position: absolute;
+  top: 30%;
+  right: 80%;
+}
+
+.hero_icons > img:first-of-type {
+  width: 20%;
+  top: 50%;
+  left: 10%;
+  position: absolute;
+}
+.hero_icons > img:nth-of-type(2) {
+  width: 30%;
+  position: absolute;
+  top: 33%;
+  left: 14%;
+}
+.hero_icons > img:nth-of-type(3) {
+  width: 30%;
+  top: 23%;
+  left: 10%;
+  position: absolute;
+  transform: rotate(210deg);
+}
+
+.hero_icons > img:nth-of-type(4) {
+  width: 30%;
+  top: 15%;
+  left: -30%;
+  position: absolute;
+}
