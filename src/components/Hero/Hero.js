@@ -5,15 +5,18 @@ import burgerImg from "../../assets/burger.png";
 import arrowImg from "../../assets/arrow.png";
 import arrow2Img from "../../assets/arrow2.png";
 import dGuy from "../../assets/delvry.png";
+import Nav from "../Nav/Nav";
 
 function Hero() {
   return (
     <>
       <div className={classes["hero_container"]}>
         <div className={classes["hero_left"]}>
+          <Nav />
+
           <section>
             <div className={classes["hero_topText"]}>
-              <span>items delivered swiftly</span>
+              <span>delivered swiftly</span>
             </div>
             <h1 className={classes["hero_heading"]}>Express home delivery</h1>
             <p className={classes["hero_subHeading"]}>
@@ -31,7 +34,7 @@ function Hero() {
               </div>
               <div>
                 <span>+293</span>
-                <span>Companies</span>
+                <span>Services</span>
               </div>
             </div>
             <div className={classes["hero_btn"]}>

@@ -9,9 +9,9 @@
   align-items: center;
   justify-content: flex-start;
   background-color: var(--sec-color);
-  padding: 1rem 1.5rem;
+  padding: 0.5rem 1.5rem;
   border-radius: 10px;
-  margin-top: 5rem;
+  margin-top: 8rem;
   width: fit-content;
   position: relative;
 }
@@ -19,7 +19,7 @@
   color: #000;
 }
 .hero_topText::before {
-  content: "Best";
+  content: "Your Items";
   background-color: var(--alt-color);
   padding: 0.5rem 1rem;
   border-radius: 10px;
@@ -33,7 +33,7 @@
   flex: 3 1;
 }
 .hero_heading {
-  margin-top: 2rem;
+  margin-top: 1rem;
   padding: 1rem 0;
   font-size: 2.8rem;
   font-family: "Hachi Maru Pop", cursive;
@@ -76,9 +76,22 @@
 .hero_btn > button:first-of-type {
   background-color: var(--alt-color);
 }
+.hero_btn > button:first-of-type:hover,
+.hero_btn > button:first-of-type:active {
+  background-color: transparent;
+  border: 1px solid var(--alt-color);
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
 .hero_btn > button:nth-of-type(2) {
   background-color: transparent;
   border: 1px solid var(--alt-color);
+}
+
+.hero_btn > button:nth-of-type(2):hover,
+.hero_btn > button:nth-of-type(2):active {
+  background-color: var(--alt-color);
+  transition: all 0.5s ease-in;
 }
 .hero_right {
   display: flex;
@@ -89,7 +102,7 @@
 .hero_img {
   width: 170%;
   position: absolute;
-  top: 30%;
+  top: 35%;
   right: 80%;
 }
 
@@ -116,6 +129,6 @@
 .hero_icons > img:nth-of-type(4) {
   width: 30%;
   top: 15%;
-  left: -30%;
+  left: -20%;
   position: absolute;
 }

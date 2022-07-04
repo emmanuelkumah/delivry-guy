@@ -1,0 +1,32 @@
+.nav_container {
+  display: flex;
+  color: var(--main-color);
+  padding: 2rem 1rem;
+  gap: 4rem;
+  /* justify-content: space-between; */
+  position: fixed;
+  top: 0;
+}
+.nav_brand {
+  display: flex;
+}
+.nav_icon {
+  font-size: 2.5rem;
+}
+.nav_menu {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  /* margin-left: 5rem; */
+}
+.nav_menu > li {
+  font-size: 1.2rem;
+  font-weight: 100;
+}
+.nav_menu > li:hover,
+.nav_menu > li:active {
+  color: var(--main-color);
+  font-weight: 400;
+  cursor: pointer;
+  border-top: 1px solid #fff;
+}
