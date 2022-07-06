@@ -2,13 +2,9 @@
   display: flex;
   gap: 2rem;
   padding: 2rem;
+  margin-top: 5rem;
 }
 .reasons_img {
-  /* display: grid;
-  grid-template-columns: repeat(3 1fr);
-  flex: 1 1;
-  grid-auto-rows: 1fr;
-  gap: 1rem; */
   display: flex;
   flex-direction: row;
 }
@@ -28,10 +24,46 @@
 }
 .reasons_partner {
   display: flex;
+  /* flex-direction: column; */
+  gap: 1rem;
   flex: 1 1;
+}
+.reasons_partner > section > h3 {
+  font-size: 3.5rem;
+  text-transform: capitalize;
+  -webkit-text-stroke: 1px var(--sec-color);
+  -webkit-text-fill-color: transparent;
+}
+.reasons_partner > section > h4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 100;
+  font-family: "Hachi Maru Pop", cursive;
+}
+.stroke {
+  -webkit-text-stroke: 1px var(--alt-color);
+  -webkit-text-fill-color: transparent;
+}
+.reasons_why > div {
+  font-size: 1.5rem;
+  padding: 0.5rem;
+}
+.reasons_icon {
+  margin-right: 1rem;
+  color: #fff;
 }
 .reasons_innerImg {
   display: flex;
   flex-direction: column;
   width: 300px;
+}
+.partner_logo {
+  display: flex;
+  gap: 1rem;
+}
+.partner_logo > img {
+  width: 70px;
 }

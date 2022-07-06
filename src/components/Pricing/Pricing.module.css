@@ -1,0 +1,52 @@
+.pricing_container {
+  margin-top: 3rem;
+  padding: 3rem;
+}
+.pricing_container > h3 {
+  text-align: center;
+  font-family: "Hachi Maru Pop", cursive;
+  font-size: 2rem;
+  margin-bottom: 4rem;
+}
+.pricing_section {
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+  align-items: center;
+}
+.pricing_details {
+  background-color: var(--sec-color);
+  padding: 2rem 1rem;
+  border-bottom-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+.pricing_details > h4 {
+  font-size: 1.7rem;
+  color: var(--main-bg-color);
+}
+.pricing_details > p {
+  font-size: 2.5rem;
+  padding: 1rem 0rem;
+  font-weight: 100;
+}
+.pricing_details > p > span {
+  font-size: 1rem;
+  font-weight: 400;
+}
+.pricing_section > section:nth-child(2) {
+  transform: scale(1.1);
+  background-color: var(--alt-color);
+}
+.pricing_items > p {
+  font-size: 1.3rem;
+  color: var(--main-bg-color);
+  font-weight: 300;
+  margin-top: 1rem;
+}
+.pricing_icon {
+  font-size: 2rem;
+  color: var(--main-bg-color);
+}
+.pricing_detls-icon {
+  margin-right: 1rem;
+}

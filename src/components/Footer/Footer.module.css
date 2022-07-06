@@ -1,0 +1,19 @@
+.footer_container {
+  position: relative;
+  bottom: 8px;
+  background-color: #ffbf00;
+}
+.footer_container > h4,
+.footer_container > p {
+  text-align: center;
+  color: var(--main-bg-color);
+}
+.footer_icons {
+  display: flex;
+  padding: 2rem;
+  gap: 3rem;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: var(--main-bg-color);
+}

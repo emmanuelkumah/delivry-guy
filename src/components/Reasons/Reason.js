@@ -3,6 +3,12 @@ import classes from "./Reason.module.css";
 import rImg1 from "../../assets/reason-img1.png";
 import rImg2 from "../../assets/reason2.jpg";
 import rImg3 from "../../assets/reason3.jpg";
+import { GiAlarmClock } from "react-icons/gi";
+import { BiSupport } from "react-icons/bi";
+import { FaRoute, FaSearchLocation } from "react-icons/fa";
+import { TbTruckDelivery } from "react-icons/tb";
+import { MdOutlineDeliveryDining } from "react-icons/md";
+
 function Reason() {
   return (
     <>
@@ -15,20 +21,53 @@ function Reason() {
           </div>
         </div>
         <div className={classes["reasons_partner"]}>
-          <h3>Partner with US</h3>
+          <section>
+            <h3>
+              <span className={classes.stroke}>Partner</span> with Us
+            </h3>
 
-          <p>
-            Deserunt consequat sit exercitation non occaecat elit amet id
-            consectetur incididunt. Laborum pariatur enim magna culpa ad quis
-            occaecat cillum excepteur irure Lorem velit aliqua. Commodo id aute
-            sint cillum est reprehenderit sit culpa eu dolor voluptate. Deserunt
-            pariatur tempor veniam officia est labore do in ad anim. Nulla
-            aliqua sit ex eu. Quis laborum esse incididunt esse ex eu aute
-            ullamco ut. Consequat dolore aute ullamco qui qui aute enim. Ut
-            eiusmod aute laboris sunt occaecat elit eu elit. Ipsum laborum
-            mollit et in aliqua ullamco incididunt amet nulla pariatur occaecat
-            ullamco sunt labore.
-          </p>
+            <h4>Why Choose Us</h4>
+            <div className={classes["reasons_why"]}>
+              <div>
+                <p>
+                  <GiAlarmClock className={classes["reasons_icon"]} />
+                  Same day delivery
+                </p>
+              </div>
+              <div>
+                <p>
+                  <BiSupport className={classes["reasons_icon"]} />
+                  24/7 Support
+                </p>
+              </div>
+              <div>
+                <p>
+                  <FaRoute className={classes["reasons_icon"]} />
+                  Match Routing
+                </p>
+              </div>
+              <div>
+                <p>
+                  <FaSearchLocation className={classes["reasons_icon"]} />
+                  Tracked deliveries
+                </p>
+              </div>
+              <div>
+                <p>
+                  <TbTruckDelivery className={classes["reasons_icon"]} />
+                  Nationwide deliveries
+                </p>
+              </div>
+              <div>
+                <p>
+                  <MdOutlineDeliveryDining
+                    className={classes["reasons_icon"]}
+                  />
+                  Smooth conveying
+                </p>
+              </div>
+            </div>
+          </section>
         </div>
       </section>
     </>
