@@ -55,3 +55,22 @@
     display: none;
   }
 }
+
+@media only screen and (min-width: 601px) and (max-width: 1200px) {
+  .pricing_container {
+    margin-top: 3rem;
+    padding: 1rem;
+  }
+  .pricing_section {
+    gap: 1rem;
+  }
+  .pricing_details > h4 {
+    font-size: 1.2rem;
+  }
+  .pricing_items > p {
+    font-size: 1.1rem;
+  }
+  .pricing_details > p {
+    font-size: 1.5rem;
+  }
+}
