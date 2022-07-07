@@ -40,10 +40,27 @@
 }
 @media only screen and (max-width: 600px) {
   .feature_container {
-    border: 1px solid red;
     margin-top: 30rem;
   }
   .features {
     flex-direction: column;
+    margin: 1rem;
+  }
+  .feature_title {
+    padding-top: 6rem;
+    padding-bottom: 2rem;
+    font-size: 1.2rem;
+  }
+  .feature_icon {
+    /* margin-bottom: 1rem; */
+    margin-top: 1rem;
+  }
+  .feature_one,
+  .feature_two,
+  .feature_three {
+    border: none;
+    /* padding: 0; */
+    margin-left: 0%;
+    padding-right: 0.1rem;
   }
 }

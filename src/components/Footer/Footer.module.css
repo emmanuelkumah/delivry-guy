@@ -17,3 +17,13 @@
   font-size: 2rem;
   color: var(--main-bg-color);
 }
+
+@media only screen and (max-width: 600px) {
+  .footer_container {
+    margin-bottom: 1rem;
+  }
+  .footer_icons {
+    padding: 1rem;
+    gap: 1rem;
+  }
+}

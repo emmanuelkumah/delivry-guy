@@ -3,7 +3,6 @@
   color: var(--main-color);
   padding: 2rem 1rem;
   gap: 4rem;
-  /* justify-content: space-between; */
 }
 .sticky {
   position: fixed;
@@ -27,6 +26,9 @@
   list-style: none;
   /* margin-left: 5rem; */
 }
+.nav_menu-icon {
+  display: none;
+}
 .nav_menu > li {
   font-size: 1.2rem;
   font-weight: 100;
@@ -41,6 +43,36 @@
 @media only screen and (max-width: 600px) {
   /*Big smartphones [426px -> 600px]*/
   .nav_container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .nav_menu-icon {
+    display: block;
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    font-size: 2rem;
+  }
+  .nav_menu {
     display: none;
+    list-style: none;
+  }
+  ul {
+    list-style: none;
+  }
+  ul > li:hover,
+  ul > li:active {
+    color: var(--main-color);
+    font-weight: 400;
+    cursor: pointer;
+    background-color: var(--sec-color);
+    padding: 0.5rem 1rem;
+    color: var(--main-bg-color);
+    border-radius: 10px;
+    transition: all 0.5s ease-in;
+  }
+  .sticky {
+    padding: 1rem;
+    width: 100%;
   }
 }

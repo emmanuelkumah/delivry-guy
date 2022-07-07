@@ -1,14 +1,21 @@
 import React, { useState, useEffect } from "react";
 import classes from "./Nav.module.css";
+import { FaTimes, FaBars } from "react-icons/fa";
+
 import { MdOutlineDeliveryDining } from "react-icons/md";
 
 function Nav() {
   const [isSticky, setIsSticky] = useState(false);
+  const [isMenuClicked, setIsMenuClicked] = useState(false);
 
   function stickyNavBar() {
     let windowHeight = window.scrollY;
     console.log(windowHeight);
     windowHeight > 200 ? setIsSticky(true) : setIsSticky(false);
+  }
+
+  function handleMenuIconClick() {
+    setIsMenuClicked(!isMenuClicked);
   }
   useEffect(() => {
     window.addEventListener("scroll", stickyNavBar);
@@ -26,7 +33,10 @@ function Nav() {
           <h1>Delvry Guy</h1>
           <MdOutlineDeliveryDining className={classes["nav_icon"]} />
         </div>
-        <ul className={classes["nav_menu"]}>
+        <div className={classes["nav_menu-icon"]} onClick={handleMenuIconClick}>
+          {isMenuClicked ? <FaTimes /> : <FaBars />}
+        </div>
+        <ul className={`${!isMenuClicked ? classes["nav_menu"] : ""}`}>
           <li>Home</li>
           <li>Services</li>
           <li>Why Us</li>

@@ -154,6 +154,7 @@
   }
   .hero_left {
     flex: 1 1;
+    padding: 2rem 1rem;
   }
   .hero_right {
     flex: 1 1;
@@ -163,11 +164,11 @@
     gap: 0.5rem;
   }
   .hero_btn {
-    gap: 1rem;
+    gap: 2rem;
   }
   .hero_btn > button {
     font-size: 1rem;
-    padding: 0.5rem;
+    padding: 0.5rem 1rem;
   }
   .hero_btn > button:first-of-type {
     border: none;
@@ -181,7 +182,33 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
+    padding: 2rem;
   }
-  .hero_icons {
+
+  .hero_icons > img:first-of-type {
+    position: relative;
+    width: 10%;
+    left: 85%;
+    top: -485%;
+  }
+  .hero_icons > img:nth-of-type(2) {
+    width: 10%;
+    position: absolute;
+    left: 88%;
+    top: 15%;
+  }
+  .hero_icons > img:nth-of-type(3) {
+    width: 10%;
+    position: absolute;
+    left: 80%;
+    top: 10%;
+    /* transform: rotateY(10deg); */
+  }
+  .hero_icons > img:nth-of-type(4) {
+    width: 15%;
+    position: absolute;
+    left: 65%;
+    top: 5%;
+    /* transform: rotateY(10deg); */
   }
 }
