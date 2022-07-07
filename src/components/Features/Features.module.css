@@ -38,3 +38,12 @@
 .feature_icon {
   font-size: 2.5rem;
 }
+@media only screen and (max-width: 600px) {
+  .feature_container {
+    border: 1px solid red;
+    margin-top: 30rem;
+  }
+  .features {
+    flex-direction: column;
+  }
+}

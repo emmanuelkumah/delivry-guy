@@ -67,3 +67,9 @@
 .partner_logo > img {
   width: 70px;
 }
+
+@media only screen and (max-width: 600px) {
+  .reasons_img {
+    display: none;
+  }
+}

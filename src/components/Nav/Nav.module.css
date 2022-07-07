@@ -4,8 +4,16 @@
   padding: 2rem 1rem;
   gap: 4rem;
   /* justify-content: space-between; */
+}
+.sticky {
   position: fixed;
   top: 0;
+  background-color: var(--sec-color);
+  border-bottom-left-radius: 50px;
+  color: #000;
+  font-weight: 400;
+  transition: all 0.5s ease-in;
+  z-index: 4;
 }
 .nav_brand {
   display: flex;
@@ -29,4 +37,10 @@
   font-weight: 400;
   cursor: pointer;
   border-top: 1px solid #fff;
+}
+@media only screen and (max-width: 600px) {
+  /*Big smartphones [426px -> 600px]*/
+  .nav_container {
+    display: none;
+  }
 }

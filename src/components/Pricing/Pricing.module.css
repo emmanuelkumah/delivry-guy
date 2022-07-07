@@ -50,3 +50,8 @@
 .pricing_detls-icon {
   margin-right: 1rem;
 }
+@media only screen and (max-width: 600px) {
+  .pricing_container {
+    display: none;
+  }
+}
