@@ -15,14 +15,14 @@ function Pricing() {
       pricingRef.current,
       { autoAlpha: 0, y: 20 },
       {
-        duration: 1,
+        duration: 1.5,
         ease: "slow(0.7, 0.7, false)",
         y: -20,
         autoAlpha: 1,
-        delay: 3,
+        delay: 1,
         scrollTrigger: {
           trigger: pricingRef.current,
-          start: "top center+=100",
+          start: "top center+=80",
           toggleActions: "play none none reverse",
         },
       }

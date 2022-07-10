@@ -3,6 +3,7 @@ import classes from "./Hero.module.css";
 import heroImg from "../../assets/hero-img.png";
 import Nav from "../Nav/Nav";
 import { gsap } from "gsap";
+import CountUp from "react-countup";
 
 function Hero() {
   const heroTopTextRef = useRef();
@@ -26,7 +27,7 @@ function Hero() {
     );
     gsap.fromTo(
       heroImgRef.current,
-      { autoAlpha: 0, x: 40 },
+      { autoAlpha: 0, x: 10 },
       { duration: 10, autoAlpha: 1, x: -10, delay: 2 }
     );
   }, []);
@@ -50,15 +51,17 @@ function Hero() {
             </p>
             <div className={classes["hero_stats"]} ref={heroStatsRef}>
               <div>
-                <span>+2342</span>
+                <CountUp start={0} end={23198} duration={5} delay={5} />
                 <span>Customers </span>
               </div>
               <div>
-                <span>+10323</span>
+                <CountUp start={0} end={7198} duration={5} delay={5} />
+
                 <span>Items delivered </span>
               </div>
               <div>
-                <span>+293</span>
+                {" "}
+                <CountUp start={0} end={18} duration={5} delay={5} />
                 <span>Services</span>
               </div>
             </div>
