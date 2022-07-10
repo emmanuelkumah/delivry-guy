@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import classes from "./Reason.module.css";
 import rImg1 from "../../assets/reason-img1.png";
 import rImg2 from "../../assets/reason2.jpg";
@@ -8,19 +8,44 @@ import { BiSupport } from "react-icons/bi";
 import { FaRoute, FaSearchLocation } from "react-icons/fa";
 import { TbTruckDelivery } from "react-icons/tb";
 import { MdOutlineDeliveryDining } from "react-icons/md";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 function Reason() {
+  const rImgRef = useRef(null);
+  const rRef = useRef(null);
+
+  useEffect(() => {
+    gsap.fromTo(
+      [rImgRef.current, rRef.current],
+      { autoAlpha: 0, y: 20 },
+      {
+        duration: 1,
+        ease: "slow(0.7, 0.7, false)",
+        y: -20,
+        autoAlpha: 1,
+        delay: 5,
+        scrollTrigger: {
+          trigger: rImgRef.current,
+
+          start: "top center+=100",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+  }, []);
   return (
     <>
       <section className={classes["reasons_container"]}>
-        <div className={classes["reasons_img"]}>
+        <div className={classes["reasons_img"]} ref={rImgRef}>
           <img src={rImg1} alt={rImg1} />
           <div className={classes["reasons_innerImg"]}>
             <img src={rImg2} alt={rImg2} />
             <img src={rImg3} alt={rImg3} />
           </div>
         </div>
-        <div className={classes["reasons_partner"]}>
+        <div className={classes["reasons_partner"]} ref={rRef}>
           <section>
             <h3>
               <span className={classes.stroke}>Partner</span> with Us

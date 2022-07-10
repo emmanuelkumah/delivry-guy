@@ -1,13 +1,37 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { BiDonateHeart } from "react-icons/bi";
 import { FaChessKing, FaRegKissWinkHeart } from "react-icons/fa";
 import { BsBookmarkCheck } from "react-icons/bs";
 import classes from "./Pricing.module.css";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 function Pricing() {
+  const pricingRef = useRef();
+
+  useEffect(() => {
+    gsap.fromTo(
+      pricingRef.current,
+      { autoAlpha: 0, y: 20 },
+      {
+        duration: 1,
+        ease: "slow(0.7, 0.7, false)",
+        y: -20,
+        autoAlpha: 1,
+        delay: 3,
+        scrollTrigger: {
+          trigger: pricingRef.current,
+          start: "top center+=100",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+  }, []);
+
   return (
     <>
-      <section className={classes["pricing_container"]}>
+      <section className={classes["pricing_container"]} ref={pricingRef}>
         <h3>Ready to start your journey with us</h3>
 
         <div className={classes["pricing_section"]}>

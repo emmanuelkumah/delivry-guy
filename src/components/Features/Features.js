@@ -1,13 +1,37 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import classes from "./Features.module.css";
 import { MdDeliveryDining } from "react-icons/md";
 import { AiOutlineFieldTime } from "react-icons/ai";
 import { CgTrack } from "react-icons/cg";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 function Features() {
+  const featureRef = useRef(null);
+
+  useEffect(() => {
+    gsap.fromTo(
+      featureRef.current,
+      { autoAlpha: 0, y: 20 },
+      {
+        duration: 1,
+        ease: "slow(0.7, 0.7, false)",
+        y: -20,
+        autoAlpha: 1,
+        delay: 3,
+        scrollTrigger: {
+          trigger: featureRef.current,
+          start: "top center+=100",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+  }, []);
+
   return (
     <>
-      <div className={classes["feature_container"]}>
+      <div className={classes["feature_container"]} ref={featureRef}>
         <section>
           <h2 className={classes["feature_title"]}>
             Your Preffered Delivery Partner
