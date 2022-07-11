@@ -37,7 +37,7 @@ function Reason() {
   }, []);
   return (
     <>
-      <section className={classes["reasons_container"]}>
+      <section className={classes["reasons_container"]} id="reasons">
         <div className={classes["reasons_img"]} ref={rImgRef}>
           <img src={rImg1} alt={rImg1} />
           <div className={classes["reasons_innerImg"]}>

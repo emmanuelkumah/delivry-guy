@@ -33,12 +33,22 @@
   font-size: 1.2rem;
   font-weight: 100;
 }
-.nav_menu > li:hover,
+/* .nav_menu > li:hover,
 .nav_menu > li:active {
   color: var(--main-color);
   font-weight: 400;
   cursor: pointer;
   border-top: 1px solid #fff;
+} */
+.nav_Links {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 400;
+}
+.nav_Links:hover,
+.nav_Links:active {
+  border-top: 1px dashed var(--sec-color);
+  transition: all 0.5s ease-in;
 }
 @media only screen and (max-width: 600px) {
   /*Big smartphones [426px -> 600px]*/
@@ -60,15 +70,18 @@
   ul {
     list-style: none;
   }
-  ul > li:hover,
-  ul > li:active {
+  ul > li {
+    margin-bottom: 1rem;
+  }
+  .nav_Links:hover,
+  .nav_Links:active {
     color: var(--main-color);
     font-weight: 400;
     cursor: pointer;
     background-color: var(--sec-color);
-    padding: 0.5rem 1rem;
+    padding: 0.3rem 1rem;
     color: var(--main-bg-color);
-    border-radius: 10px;
+    border-radius: 5px;
     transition: all 0.5s ease-in;
   }
   .sticky {
@@ -96,8 +109,11 @@
   ul {
     list-style: none;
   }
-  ul > li:hover,
-  ul > li:active {
+  ul > li {
+    margin-top: 1rem;
+  }
+  .nav_Links:hover,
+  .nav_Links:active {
     color: var(--main-color);
     font-weight: 400;
     cursor: pointer;
@@ -107,6 +123,7 @@
     border-radius: 10px;
     transition: all 0.5s ease-in;
   }
+
   .sticky {
     padding: 1rem;
     width: 100%;

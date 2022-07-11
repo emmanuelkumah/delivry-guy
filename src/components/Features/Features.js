@@ -31,7 +31,11 @@ function Features() {
 
   return (
     <>
-      <div className={classes["feature_container"]} ref={featureRef}>
+      <div
+        className={classes["feature_container"]}
+        ref={featureRef}
+        id="feature"
+      >
         <section>
           <h2 className={classes["feature_title"]}>
             Your Preffered Delivery Partner

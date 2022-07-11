@@ -31,7 +31,11 @@ function Pricing() {
 
   return (
     <>
-      <section className={classes["pricing_container"]} ref={pricingRef}>
+      <section
+        className={classes["pricing_container"]}
+        ref={pricingRef}
+        id="pricing"
+      >
         <h3>Ready to start your journey with us</h3>
 
         <div className={classes["pricing_section"]}>

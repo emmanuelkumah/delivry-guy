@@ -34,10 +34,9 @@ function Hero() {
 
   return (
     <>
-      <div className={classes["hero_container"]}>
+      <div className={classes["hero_container"]} id="home">
         <div className={classes["hero_left"]}>
           <Nav />
-
           <section>
             <div className={classes["hero_topText"]} ref={heroTopTextRef}>
               <span>delivered swiftly</span>

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import classes from "./Nav.module.css";
 import { FaTimes, FaBars } from "react-icons/fa";
-
 import { MdOutlineDeliveryDining } from "react-icons/md";
+import { HashLink as Link } from "react-router-hash-link";
 
 function Nav() {
   const [isSticky, setIsSticky] = useState(false);
@@ -37,10 +37,26 @@ function Nav() {
           {isMenuClicked ? <FaTimes /> : <FaBars />}
         </div>
         <ul className={`${!isMenuClicked ? classes["nav_menu"] : ""}`}>
-          <li>Home</li>
-          <li>Services</li>
-          <li>Why Us</li>
-          <li>Go Mobile</li>
+          <li>
+            <Link to="#home" smooth className={classes["nav_Links"]}>
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link to="#feature" smooth className={classes["nav_Links"]}>
+              Why Us
+            </Link>
+          </li>
+          <li>
+            <Link to="#reasons" smooth className={classes["nav_Links"]}>
+              Join Us
+            </Link>
+          </li>
+          <li>
+            <Link to="#pricing" smooth className={classes["nav_Links"]}>
+              Pricing
+            </Link>
+          </li>
         </ul>
       </nav>
     </>
