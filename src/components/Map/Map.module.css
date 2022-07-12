@@ -1,0 +1,75 @@
+.map_container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 2rem;
+}
+.map_form {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1;
+  background-color: var(--sec-color);
+  padding: 1rem;
+}
+.map_form > h1 {
+  color: var(--main-bg-color);
+  padding-top: 2rem;
+  margin-bottom: 1rem;
+}
+.form_input {
+  display: flex;
+  flex-direction: column;
+}
+.form_input > label {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  color: var(--main-bg-color);
+}
+input[type="text"] {
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  padding: 0.8rem;
+}
+.map {
+  display: flex;
+  flex-direction: column;
+  flex: 3 1;
+  width: 70vw;
+  height: 100vh;
+}
+.map_zoom > h2 {
+  color: var(--main-bg-color);
+  margin: 1rem 0rem;
+}
+.icon_container {
+  display: flex;
+  gap: 1rem;
+}
+
+.map_icon,
+.icon_container > span {
+  color: var(--main-bg-color);
+  font-size: 2rem;
+}
+.map_btn {
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  padding: 1rem;
+  color: #fff;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  width: 100%;
+  background-color: var(--main-bg-color);
+}
+.map_btn:hover,
+.map_btn:active {
+  background-color: var(--alt-color);
+  transition: all 0.5s ease-in;
+  cursor: pointer;
+}
+.error_msg {
+  color: red;
+}
