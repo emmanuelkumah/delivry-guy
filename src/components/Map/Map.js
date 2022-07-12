@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import * as tt from "@tomtom-international/web-sdk-maps";
+import "@tomtom-international/web-sdk-maps/dist/maps.css";
 import classes from "./Map.module.css";
 import { AiOutlinePlusSquare, AiOutlineMinusSquare } from "react-icons/ai";
 
@@ -13,7 +14,7 @@ function Map() {
   // const [isLoading, setIsLoading] = useState(true);
 
   const mapElemRef = useRef();
-  const MAX_ZOOM = 17;
+  const MAX_ZOOM = 20;
 
   const updateLong = (e) => {
     const enteredLong = e.target.value;
@@ -49,6 +50,7 @@ function Map() {
     map.setCenter([parseFloat(mapLong), parseFloat(mapLat)]);
     map.setZoom(mapZoom);
   };
+
   useEffect(() => {
     let map = tt.map({
       key: process.env.REACT_APP_KEY,
@@ -61,6 +63,34 @@ function Map() {
       },
     });
     setMap(map);
+
+    const addMarkers = () => {
+      //showPop
+      const popupOffset = {
+        bottom: [0, -25],
+      };
+
+      const popup = new tt.Popup({ offset: popupOffset }).setHTML("info");
+
+      //showMarker
+      let marker = new tt.Marker({
+        draggable: true,
+      })
+        .setLngLat([mapLong, mapLat])
+        .addTo(map);
+
+      //DragMarker
+      const onDragEnd = () => {
+        const lngLat = marker.getLngLat();
+        console.log("dragging", lngLat);
+        setMapLong(lngLat.lng);
+        setMapLat(lngLat.lat);
+      };
+      marker.on("dragend", onDragEnd);
+
+      marker.setPopup(popup).togglePopup();
+    };
+    addMarkers();
 
     return () => map.remove();
   }, [mapLat, mapLong, mapZoom]);
@@ -119,13 +149,13 @@ function Map() {
             <button className={classes["map_btn"]}>Update Map</button>
           </form>
         </section>
-        <section>
-          {map ? (
-            <div ref={mapElemRef} className={classes.map} />
-          ) : (
-            <h2>Loading Map</h2>
-          )}
-        </section>
+        {map ? (
+          <section>
+            <div ref={mapElemRef} className={classes.map} id="map" />
+          </section>
+        ) : (
+          <h1>Loading </h1>
+        )}
       </div>
     </>
   );
