@@ -7,6 +7,7 @@ function SearchPlaces() {
     longitude: "",
   });
   const [errorMsg, setErrorMsg] = useState({});
+  //   const [searchResults, setSearchResults] = useState({});
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
@@ -25,12 +26,11 @@ function SearchPlaces() {
         setErrorMsg({ err });
       }
     );
+    console.log("err", errorMsg);
   }, []);
-  console.log("err", errorMsg);
   return (
     <>
       <h1>Place search</h1>
-
       <Notification geoLocation={geoLocation} errorMsg={errorMsg} />
     </>
   );
