@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useRef } from "react";
 import * as tt from "@tomtom-international/web-sdk-maps";
 import "@tomtom-international/web-sdk-maps/dist/maps.css";
+import * as ttapi from "@tomtom-international/web-sdk-services";
+
 import classes from "./Map.module.css";
 import { AiOutlinePlusSquare, AiOutlineMinusSquare } from "react-icons/ai";
 
@@ -51,7 +53,55 @@ function Map() {
     map.setZoom(mapZoom);
   };
 
+  //convert cordinates to point
+  const convertToPoints = (lngLat) => {
+    return {
+      point: {
+        latitude: lngLat.lat,
+        longitude: lngLat.lng,
+      },
+    };
+  };
+
+  //sketch route
+  const drawRoute = (geoJson, map) => {
+    if (map.getLayer("route")) {
+      map.removeLayer("route");
+      map.removeSource("route");
+    }
+    map.addLayer({
+      id: "route",
+      type: "line",
+      source: {
+        type: "geojson",
+        data: geoJson,
+      },
+      paint: {
+        "line-color": "#FEA233",
+        "line-width": 6,
+      },
+    });
+  };
+
+  //addDeliveryMarker
+  const addDeliveryMarker = (lngLat, map) => {
+    const element = document.createElement("div");
+    element.className = `${classes["delivery_marker"]}`;
+
+    new tt.Marker({
+      element: element,
+    })
+      .setLngLat(lngLat)
+      .addTo(map);
+  };
+
   useEffect(() => {
+    const destinations = [];
+    const origin = {
+      lng: mapLong,
+      lat: mapLat,
+    };
+
     let map = tt.map({
       key: process.env.REACT_APP_KEY,
       container: mapElemRef.current,
@@ -64,16 +114,8 @@ function Map() {
     });
     setMap(map);
 
-    const addMarkers = () => {
-      //showPop
-      const popupOffset = {
-        bottom: [0, -25],
-      };
-
-      const popup = new tt.Popup({ offset: popupOffset }).setHTML("info");
-
-      //showMarker
-      let marker = new tt.Marker({
+    const addMarker = () => {
+      const marker = new tt.Marker({
         draggable: true,
       })
         .setLngLat([mapLong, mapLat])
@@ -82,15 +124,77 @@ function Map() {
       //DragMarker
       const onDragEnd = () => {
         const lngLat = marker.getLngLat();
-        console.log("dragging", lngLat);
         setMapLong(lngLat.lng);
         setMapLat(lngLat.lat);
       };
       marker.on("dragend", onDragEnd);
-
-      marker.setPopup(popup).togglePopup();
     };
-    addMarkers();
+    addMarker();
+
+    //getAlldestinations
+    const sortDestinations = (locations) => {
+      const pointsForDestinations = locations.map((destination) => {
+        return convertToPoints(destination);
+      });
+      const callParameters = {
+        key: process.env.REACT_APP_KEY,
+        destinations: pointsForDestinations,
+        origins: [convertToPoints(origin)],
+      };
+
+      return new Promise((resolve, reject) => {
+        ttapi.services.matrixRouting(callParameters).then((matrixResult) => {
+          const matrixResponses = matrixResult.matrix[0];
+
+          //return location and drivingTime
+          const locDrivingTimeArray = matrixResponses.map(
+            (matrixResponse, index) => {
+              return {
+                location: locations[index],
+                drivingtime:
+                  matrixResponse.response.routeSummary.travelTimeInSeconds,
+              };
+            }
+          );
+          //sort by driving time  in ascending order
+          locDrivingTimeArray.sort((a, b) => {
+            return a.drivingtime - b.drivingtime;
+          });
+
+          //sort by location
+          const sortedLocations = locDrivingTimeArray.map((locDrivingTime) => {
+            return locDrivingTime.location;
+          });
+
+          resolve(sortedLocations);
+        });
+      });
+    };
+
+    //recalcullate route
+    const recalculateRoutes = () => {
+      sortDestinations(destinations).then((sorted) => {
+        sorted.unshift(origin);
+
+        ttapi.services
+          .calculateRoute({
+            key: process.env.REACT_APP_KEY,
+            locations: sorted,
+          })
+          .then((routeData) => {
+            const geoJson = routeData.toGeoJson();
+            drawRoute(geoJson, map);
+          });
+      });
+    };
+    //add destinations
+    map.on("click", (e) => {
+      console.log("lat", e.lngLat);
+      destinations.push(e.lngLat);
+      console.log("pushed", destinations);
+      addDeliveryMarker(e.lngLat, map);
+      recalculateRoutes();
+    });
 
     return () => map.remove();
   }, [mapLat, mapLong, mapZoom]);

@@ -76,3 +76,11 @@ input[type="text"] {
 .info {
   color: red;
 }
+.delivery_marker {
+  background-image: url("https://i.imgur.com/cIooqnp.png");
+  background-size: cover;
+  width: 20px;
+  height: 20px;
+  border-radius: 15px;
+  border: solid darkslategrey 3px;
+}
