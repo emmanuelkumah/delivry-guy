@@ -1,0 +1,51 @@
+.places_container {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+.position {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0rem;
+}
+.position > h2 {
+  text-align: center;
+}
+.position_coords {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+.position_coords > p > span {
+  margin-right: 1rem;
+}
+.places_container > h1 {
+  font-size: 2rem;
+  text-align: center;
+  text-transform: capitalize;
+}
+.place_card {
+  display: flex;
+  gap: 2rem;
+}
+.place_card_item {
+  background-color: azure;
+  flex-basis: 25%;
+  color: black;
+  padding: 2rem;
+}
+ul {
+  list-style-type: none;
+}
+.form_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form_input {
+  font-size: 1.3rem;
+  padding: 1rem;
+}
+.place_heading {
+  padding: 2rem 0rem;
+}
