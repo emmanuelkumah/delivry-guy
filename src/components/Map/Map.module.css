@@ -35,7 +35,7 @@ input[type="text"] {
 .map {
   display: flex;
   flex-direction: column;
-  flex: 3 1;
+  /* flex: 3 1; */
   width: 70vw;
   height: 100vh;
 }
@@ -83,4 +83,22 @@ input[type="text"] {
   height: 20px;
   border-radius: 15px;
   border: solid darkslategrey 3px;
+}
+@media only screen and (max-width: 600px) {
+  .map_container {
+    display: flex;
+    flex-direction: column;
+  }
+  .map {
+    width: 80vw;
+  }
+}
+@media only screen and (min-width: 601px) and (max-width: 1200px) {
+  .map_container {
+    display: flex;
+    flex-direction: column;
+  }
+  .map {
+    width: 80%;
+  }
 }

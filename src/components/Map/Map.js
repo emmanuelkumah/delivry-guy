@@ -5,6 +5,7 @@ import * as ttapi from "@tomtom-international/web-sdk-services";
 
 import classes from "./Map.module.css";
 import { AiOutlinePlusSquare, AiOutlineMinusSquare } from "react-icons/ai";
+import Nav from "../Nav/Nav";
 
 function Map() {
   const [map, setMap] = useState({});
@@ -189,9 +190,7 @@ function Map() {
     };
     //add destinations
     map.on("click", (e) => {
-      console.log("lat", e.lngLat);
       destinations.push(e.lngLat);
-      console.log("pushed", destinations);
       addDeliveryMarker(e.lngLat, map);
       recalculateRoutes();
     });
@@ -201,6 +200,7 @@ function Map() {
 
   return (
     <>
+      <Nav />
       <div className={classes["map_container"]}>
         <section className={classes["map_form"]}>
           <h1>Where to ? </h1>

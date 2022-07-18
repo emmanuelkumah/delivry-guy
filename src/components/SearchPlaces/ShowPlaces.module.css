@@ -18,21 +18,32 @@
 }
 .position_coords > p > span {
   margin-right: 1rem;
+  color: var(--sec-color);
 }
 .places_container > h1 {
   font-size: 2rem;
   text-align: center;
   text-transform: capitalize;
+  margin-top: 1.5rem;
+  color: var(--sec-color);
 }
 .place_card {
   display: flex;
-  gap: 2rem;
+  gap: 3rem;
 }
 .place_card_item {
-  background-color: azure;
-  flex-basis: 25%;
+  background-color: #dfe6e9;
+  flex-basis: 30%;
   color: black;
   padding: 2rem;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.place_card_item:hover,
+.place_card_item:active {
+  cursor: pointer;
+  transform: scale(1.1);
+  transition: all 0.5s ease-in-out;
 }
 ul {
   list-style-type: none;
@@ -48,4 +59,51 @@ ul {
 }
 .place_heading {
   padding: 2rem 0rem;
+  color: var(--sec-color);
+  font-family: "Hachi Maru Pop", cursive;
+  text-transform: capitalize;
+}
+.place_name {
+  font-weight: 400;
+}
+.place_cat,
+.place_post {
+  font-family: "Hachi Maru Pop", cursive;
+  padding: 0.7rem 0rem;
+}
+.form_btn {
+  margin-left: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  border: none;
+  font-size: 1.3rem;
+  background-color: var(--sec-color);
+}
+.form_btn:hover,
+.form_btn:active {
+  font-family: "Hachi Maru Pop", cursive;
+  cursor: pointer;
+  background-color: var(--alt-color);
+  font-size: 1rem;
+}
+.error {
+  color: red;
+}
+@media only screen and (max-width: 600px) {
+  .place_card {
+    display: flex;
+    flex-direction: column;
+  }
+  .place_card_item {
+    flex: 100%;
+  }
+  .form_container > form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .form_btn {
+    width: 70vw;
+    margin-top: 1rem;
+  }
 }

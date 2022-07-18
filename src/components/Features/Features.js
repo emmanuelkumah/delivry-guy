@@ -44,12 +44,12 @@ function Features() {
         <div className={classes.features}>
           <div className={classes["feature_one"]}>
             <MdDeliveryDining className={classes["feature_icon"]} />
-            <h3>Pick Up Services</h3>
+            <h3>Swift Services</h3>
 
             <p>
-              We provide nationwide pickup services, we come right to your door
-              steps Mollit tempor nisi id proident pariatur aute pariatur
-              reprehenderit.
+              We provide nationwide pickup and drop offservices, we come right
+              to your door seamlessly calculating from the distance from our
+              origin to your destination
             </p>
           </div>
           <div className={classes["feature_two"]}>

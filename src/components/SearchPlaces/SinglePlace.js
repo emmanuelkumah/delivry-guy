@@ -6,16 +6,16 @@ function SinglePlace({ ...place }) {
     <>
       <li className={classes["place_card_item"]}>
         <section>
-          <h2>{place.poi.name}</h2>
+          <h2 className={classes["place_name"]}>{place.poi.name}</h2>
           <p>{place.address.municipalitySubdivision}</p>
-          <h2>Category</h2>
+          <h3 className={classes["place_cat"]}>Category</h3>
           {place.poi.categories.map((cat) => (
             <p>{cat}</p>
           ))}
         </section>
 
         <section>
-          <h3>Position</h3>
+          <h3 className={classes["place_post"]}>Position</h3>
           <p>Latitude: {place.position.lat}</p>
           <p>longitude: {place.position.lon}</p>
         </section>

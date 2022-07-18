@@ -4,6 +4,7 @@ import heroImg from "../../assets/hero-img.png";
 import Nav from "../Nav/Nav";
 import { gsap } from "gsap";
 import CountUp from "react-countup";
+import { Link } from "react-router-dom";
 
 function Hero() {
   const heroTopTextRef = useRef();
@@ -27,8 +28,8 @@ function Hero() {
     );
     gsap.fromTo(
       heroImgRef.current,
-      { autoAlpha: 0, x: 10 },
-      { duration: 10, autoAlpha: 1, x: -10, delay: 2 }
+      { autoAlpha: 0, x: 30 },
+      { duration: 10, autoAlpha: 1, x: -30, delay: 2 }
     );
   }, []);
 
@@ -60,13 +61,17 @@ function Hero() {
               </div>
               <div>
                 {" "}
-                <CountUp start={0} end={18} duration={5} delay={5} />
-                <span>Services</span>
+                <CountUp start={0} end={324} duration={5} delay={5} />
+                <span>Places found</span>
               </div>
             </div>
-            <div className={classes["hero_btn"]} ref={heroBtnRef}>
-              <button>Get Started</button>
-              <button>Learn More</button>
+            <div className={classes["hero_btn_container"]} ref={heroBtnRef}>
+              <Link to="/map" className={classes["hero_btn_1"]}>
+                Get Route
+              </Link>
+              <Link to="/places" className={classes["hero_btn_2"]}>
+                Find Places
+              </Link>
             </div>
           </section>
         </div>

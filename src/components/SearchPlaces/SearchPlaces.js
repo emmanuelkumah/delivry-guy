@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import ShowPlaces from "./ShowPlaces";
 import classes from "./ShowPlaces.module.css";
+import Nav from "../Nav/Nav";
 
 function SearchPlaces() {
   const [geoLocation, setGeoLocation] = useState({
@@ -11,6 +12,7 @@ function SearchPlaces() {
   const [errorMsg, setErrorMsg] = useState("");
   const [enteredPlace, setEnteredPlace] = useState("");
   const [placeResult, setplaceResult] = useState([]);
+  const [isDisabled, setIsDisabled] = useState(false);
   const apiKey = process.env.REACT_APP_KEY;
 
   //fetch nearbyplaces from tomtom api
@@ -27,7 +29,6 @@ function SearchPlaces() {
       const response = await axios.get(
         `${baseUrl}/${enteredPlace}.json?${queryString}`
       );
-      console.log("test", response.data.results);
       setplaceResult([...response.data.results]);
     } catch (error) {
       console.log(error);
@@ -44,6 +45,13 @@ function SearchPlaces() {
     );
     setEnteredPlace("");
   };
+  const handleClick = () => {
+    if (enteredPlace === "") {
+      setIsDisabled(true);
+    } else {
+      setIsDisabled(false);
+    }
+  };
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
@@ -59,10 +67,11 @@ function SearchPlaces() {
       }
     );
     // getNearbyPlaces(enteredPlace, geoLocation.latitude, geoLocation.longitude);
-  }, [enteredPlace]);
+  }, []);
 
   return (
     <>
+      <Nav />
       <section className={classes["places_container"]}>
         <h1>Search for Places of Interest</h1>
         <div>
@@ -86,17 +95,31 @@ function SearchPlaces() {
         </div>
         <section className={classes["form_container"]}>
           <form onSubmit={(e) => handleFormSubmission(e)}>
-            <input
-              type="text"
-              value={enteredPlace}
-              onChange={(e) => setEnteredPlace(e.target.value)}
-              className={classes["form_input"]}
-              autoFocus
-              placeholder="Enter place of interest"
-            />
+            <div>
+              <input
+                type="text"
+                value={enteredPlace}
+                onChange={(e) => setEnteredPlace(e.target.value)}
+                className={classes["form_input"]}
+                autoFocus
+                placeholder="Enter place of interest"
+              />
+              <button className={classes["form_btn"]} onClick={handleClick}>
+                Find Place
+              </button>
+              {isDisabled ? (
+                <p className={classes["error"]}>Please enter a search term </p>
+              ) : (
+                ""
+              )}
+            </div>
           </form>
         </section>
-        <ShowPlaces placeResult={placeResult} />
+        {placeResult.length === 0 ? (
+          <h2>No place found</h2>
+        ) : (
+          <ShowPlaces placeResult={placeResult} />
+        )}
       </section>
     </>
   );

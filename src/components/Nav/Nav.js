@@ -29,9 +29,11 @@ function Nav() {
         }`}
         id="nav"
       >
-        <div className={classes["nav_brand"]}>
-          <h1>Delvry Guy</h1>
-          <MdOutlineDeliveryDining className={classes["nav_icon"]} />
+        <div>
+          <Link to="/" className={classes["nav_brand"]}>
+            <h1>Delvry Guy</h1>
+            <MdOutlineDeliveryDining className={classes["nav_icon"]} />
+          </Link>
         </div>
         <div className={classes["nav_menu-icon"]} onClick={handleMenuIconClick}>
           {isMenuClicked ? <FaTimes /> : <FaBars />}

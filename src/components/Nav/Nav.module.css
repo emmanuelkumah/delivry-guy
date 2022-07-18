@@ -16,6 +16,8 @@
 }
 .nav_brand {
   display: flex;
+  color: #fff;
+  text-decoration: none;
 }
 .nav_icon {
   font-size: 2.5rem;
@@ -33,13 +35,7 @@
   font-size: 1.2rem;
   font-weight: 100;
 }
-/* .nav_menu > li:hover,
-.nav_menu > li:active {
-  color: var(--main-color);
-  font-weight: 400;
-  cursor: pointer;
-  border-top: 1px solid #fff;
-} */
+
 .nav_Links {
   color: #fff;
   text-decoration: none;
