@@ -28,8 +28,8 @@ function Hero() {
     );
     gsap.fromTo(
       heroImgRef.current,
-      { autoAlpha: 0, x: 30 },
-      { duration: 10, autoAlpha: 1, x: -30, delay: 2 }
+      { autoAlpha: 0, x: -20 },
+      { duration: 10, autoAlpha: 1, x: 10, delay: 2 }
     );
   }, []);
 
@@ -46,22 +46,22 @@ function Hero() {
               Express home delivery
             </h1>
             <p className={classes["hero_subHeading"]} ref={heroSubHeadingRef}>
-              Imagine getting delicious meals, medicine and groceries delivery
+              Imagine getting delicious meals, medicine, and groceries delivered
               to your door step, immediately you need them
             </p>
             <div className={classes["hero_stats"]} ref={heroStatsRef}>
               <div>
-                <CountUp start={0} end={23198} duration={5} delay={5} />
+                <CountUp start={0} end={23198} duration={5} delay={10} />
                 <span>Customers </span>
               </div>
               <div>
-                <CountUp start={0} end={7198} duration={5} delay={5} />
+                <CountUp start={0} end={7198} duration={5} delay={10} />
 
                 <span>Items delivered </span>
               </div>
               <div>
                 {" "}
-                <CountUp start={0} end={324} duration={5} delay={5} />
+                <CountUp start={0} end={324} duration={5} delay={10} />
                 <span>Places found</span>
               </div>
             </div>

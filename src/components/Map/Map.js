@@ -204,6 +204,9 @@ function Map() {
       <div className={classes["map_container"]}>
         <section className={classes["map_form"]}>
           <h1>Where to ? </h1>
+          <div>
+            <p>Click on the locations to see routes </p>
+          </div>
           <form onSubmit={updateMap}>
             <div className={classes["form_input"]}>
               <label htmlFor="longitude">Longitude</label>

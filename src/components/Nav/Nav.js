@@ -10,7 +10,6 @@ function Nav() {
 
   function stickyNavBar() {
     let windowHeight = window.scrollY;
-    console.log(windowHeight);
     windowHeight > 200 ? setIsSticky(true) : setIsSticky(false);
   }
 
